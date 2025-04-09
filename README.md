@@ -252,3 +252,69 @@ You are required to submit BOTH of the following for review:
 
 ---
 © 2024 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+
+
+
+```
+MERN-Challenge-18
+├─ book-search
+│  ├─ .npmrc
+│  ├─ client
+│  │  ├─ .eslintrc.cjs
+│  │  ├─ index.html
+│  │  ├─ package.json
+│  │  ├─ public
+│  │  │  └─ vite.svg
+│  │  ├─ src
+│  │  │  ├─ App.css
+│  │  │  ├─ App.tsx
+│  │  │  ├─ assets
+│  │  │  │  └─ react.svg
+│  │  │  ├─ components
+│  │  │  │  ├─ LoginForm.tsx
+│  │  │  │  ├─ Navbar.tsx
+│  │  │  │  └─ SignupForm.tsx
+│  │  │  ├─ main.tsx
+│  │  │  ├─ models
+│  │  │  │  ├─ Book.ts
+│  │  │  │  ├─ GoogleAPIBook.ts
+│  │  │  │  └─ User.ts
+│  │  │  ├─ pages
+│  │  │  │  ├─ SavedBooks.tsx
+│  │  │  │  └─ SearchBooks.tsx
+│  │  │  └─ utils
+│  │  │     ├─ API.ts
+│  │  │     ├─ auth.ts
+│  │  │     └─ localStorage.ts
+│  │  ├─ tsconfig.json
+│  │  ├─ tsconfig.node.json
+│  │  └─ vite.config.ts
+│  ├─ package.json
+│  ├─ server
+│  │  ├─ .env.EXAMPLE
+│  │  ├─ package.json
+│  │  ├─ src
+│  │  │  ├─ config
+│  │  │  │  └─ connection.ts
+│  │  │  ├─ controllers
+│  │  │  │  └─ user-controller.ts
+│  │  │  ├─ models
+│  │  │  │  ├─ Book.ts
+│  │  │  │  ├─ index.ts
+│  │  │  │  └─ User.ts
+│  │  │  ├─ routes
+│  │  │  │  ├─ api
+│  │  │  │  │  ├─ index.ts
+│  │  │  │  │  └─ user-routes.ts
+│  │  │  │  └─ index.ts
+│  │  │  ├─ server.ts
+│  │  │  ├─ services
+│  │  │  │  └─ auth.ts
+│  │  │  └─ types
+│  │  │     └─ express
+│  │  │        └─ index.d.ts
+│  │  └─ tsconfig.json
+│  └─ tsconfig.json
+└─ README.md
+
+```
