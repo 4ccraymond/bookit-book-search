@@ -1,9 +1,14 @@
+
 import express from 'express';
 import path from 'node:path';
 import { ApolloServer } from '@apollo/server';
 import { expressMiddleware } from '@apollo/server/express4';
 import cors from 'cors';
 import bodyParser from 'body-parser';
+import { getUserFromToken } from './services/auth.js';
+
+import dotenv from 'dotenv';
+dotenv.config();
 
 import db from './config/connection.js';
 import routes from './routes/index.js';
@@ -27,8 +32,8 @@ const startApolloServer = async () => {
     bodyParser.json(),
     expressMiddleware(server, {
       context: async ({ req }) => {
-        // We'll update this in the next step to include auth
-        return { token: req.headers.authorization };
+        const user = getUserFromToken(req);
+        return { user };
       },
     })
   );
