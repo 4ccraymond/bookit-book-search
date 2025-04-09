@@ -4,7 +4,13 @@ import { Request } from 'express';
 const secret = process.env.JWT_SECRET || 'mysecret';
 const expiration = '2h';
 
-export function signToken({ username, email, _id }) {
+interface TokenPayload {
+  username: string;
+  email: string;
+  _id: string;
+}
+
+export function signToken({ username, email, _id }: TokenPayload) {
   const payload = { username, email, _id };
   return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
 }
@@ -19,7 +25,7 @@ export function getUserFromToken(req: Request) {
   if (!token) return null;
 
   try {
-    const { data } = jwt.verify(token, secret) as { data: any };
+    const { data } = jwt.verify(token, secret) as { data: TokenPayload };
     return data;
   } catch (err) {
     console.log('Invalid token');

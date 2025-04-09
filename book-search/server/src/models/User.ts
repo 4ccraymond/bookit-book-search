@@ -4,9 +4,10 @@ import bcrypt from 'bcrypt';
 // import schema from Book.js
 import bookSchema from './Book.js';
 import type { BookDocument } from './Book.js';
+import type { ObjectId } from 'mongodb';
 
 export interface UserDocument extends Document {
-  id: string;
+  _id: ObjectId;
   username: string;
   email: string;
   password: string;

@@ -1,7 +1,17 @@
-import { User } from '../models/User.js';
-import { signToken } from '../services/auth.js';
+import User from '../models/User';
+import { signToken } from '../services/auth';
 import { AuthenticationError } from 'apollo-server-express';
-import type { Resolvers } from '@apollo/server';
+type Resolvers = {
+  Query: {
+    me: (_parent: any, _args: any, context: any) => Promise<any>;
+  };
+  Mutation: {
+    login: (_parent: any, args: { email: string; password: string }) => Promise<any>;
+    addUser: (_parent: any, args: { username: string; email: string; password: string }) => Promise<any>;
+    saveBook: (_parent: any, args: { bookData: any }, context: any) => Promise<any>;
+    removeBook: (_parent: any, args: { bookId: string }, context: any) => Promise<any>;
+  };
+};
 
 export const resolvers: Resolvers = {
   Query: {
@@ -26,13 +36,23 @@ export const resolvers: Resolvers = {
         throw new AuthenticationError('Incorrect credentials');
       }
 
-      const token = signToken(user);
+      const token = signToken({
+        username: user.username,
+        email: user.email,
+        _id: user._id.toString(),
+      });
+      
       return { token, user };
     },
 
     addUser: async (_parent, { username, email, password }) => {
       const user = await User.create({ username, email, password });
-      const token = signToken(user);
+      const token = signToken({
+        username: user.username,
+        email: user.email,
+        _id: user._id.toString(),
+      });
+      
       return { token, user };
     },
 

@@ -1,8 +1,10 @@
 import { useMutation, useQuery } from '@apollo/client';
 import { Container, Card, Button, Row, Col } from 'react-bootstrap';
 
+import type { Book } from '../models/Book';
+
 import { GET_ME } from '../utils/queries';
-import { REMOVE_BOOK } from '../utils/mutations';
+import { REMOVE_BOOK } from '../utils/mutations.js';
 import { removeBookId } from '../utils/localStorage';
 
 const SavedBooks = () => {
@@ -54,7 +56,7 @@ const SavedBooks = () => {
             : 'You have no saved books!'}
         </h2>
         <Row>
-          {userData.savedBooks.map((book) => (
+          {userData.savedBooks.map((book: Book) => (
             <Col md='4' key={book.bookId}>
               <Card border='dark'>
                 {book.image ? (
