@@ -33,12 +33,15 @@ const startApolloServer = async () => {
 
   await db();
 
+  app.use(cors({
+    origin: 'https://bookit-book-search-1.onrender.com',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+  }));
+  
   app.use(
     '/graphql',
-    cors({
-      origin: 'https://bookit-book-search-1.onrender.com',
-      credentials: true,
-    }),
     bodyParser.json(),
     expressMiddleware(server, {
       context: async ({ req }) => {
@@ -48,7 +51,6 @@ const startApolloServer = async () => {
     })
   );
   
-
   app.use(express.urlencoded({ extended: true }));
   app.use(express.json());
 
