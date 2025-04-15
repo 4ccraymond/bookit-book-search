@@ -34,7 +34,10 @@ const startApolloServer = async () => {
   await db();
 
   app.use(cors({
-    origin: 'https://bookit-book-search-1.onrender.com',
+    origin: [
+      'http://localhost:3000',
+      'https://bookit-book-search-1.onrender.com',
+    ],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
