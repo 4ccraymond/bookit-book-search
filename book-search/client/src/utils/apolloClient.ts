@@ -3,7 +3,7 @@ import { setContext } from '@apollo/client/link/context';
 
 // Change this with deploy
 const httpLink = createHttpLink({
-  uri: 'https://bookit-book-search.onrender.com',
+  uri: 'https://bookit-book-search.onrender.com/graphql',
 });
 
 // Attach JWT token to every request
