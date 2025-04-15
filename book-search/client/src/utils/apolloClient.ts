@@ -3,7 +3,7 @@ import { setContext } from '@apollo/client/link/context';
 
 // Change this with deploy
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: 'http://localhost:3001/graphql',
 });
 
 // Attach JWT token to every request

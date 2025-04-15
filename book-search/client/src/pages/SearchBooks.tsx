@@ -10,13 +10,18 @@ import {
 } from 'react-bootstrap';
 
 import Auth from '../utils/auth';
-import { saveBook, searchGoogleBooks } from '../utils/API';
+
 import { saveBookIds, getSavedBookIds } from '../utils/localStorage';
 import type { Book } from '../models/Book';
 import type { GoogleAPIBook } from '../models/GoogleAPIBook';
 
 import { useMutation } from '@apollo/client';
 import { SAVE_BOOK } from '../utils/mutations';
+
+const searchGoogleBooks = async (query: string) => {
+  const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}`);
+  return response;
+};
 
 const SearchBooks = () => {
   const [saveBookMutation] = useMutation(SAVE_BOOK);

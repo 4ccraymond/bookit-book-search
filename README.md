@@ -256,12 +256,15 @@ You are required to submit BOTH of the following for review:
 
 
 ```
+
+```
 MERN-Challenge-18
 ├─ book-search
 │  ├─ .npmrc
 │  ├─ client
 │  │  ├─ .eslintrc.cjs
 │  │  ├─ index.html
+│  │  ├─ package-lock.json
 │  │  ├─ package.json
 │  │  ├─ public
 │  │  │  └─ vite.svg
@@ -284,14 +287,19 @@ MERN-Challenge-18
 │  │  │  │  └─ SearchBooks.tsx
 │  │  │  └─ utils
 │  │  │     ├─ API.ts
+│  │  │     ├─ apolloClient.ts
 │  │  │     ├─ auth.ts
-│  │  │     └─ localStorage.ts
+│  │  │     ├─ localStorage.ts
+│  │  │     ├─ mutations.ts
+│  │  │     └─ queries.ts
 │  │  ├─ tsconfig.json
 │  │  ├─ tsconfig.node.json
 │  │  └─ vite.config.ts
+│  ├─ package-lock.json
 │  ├─ package.json
 │  ├─ server
-│  │  ├─ .env.EXAMPLE
+│  │  ├─ .env
+│  │  ├─ package-lock.json
 │  │  ├─ package.json
 │  │  ├─ src
 │  │  │  ├─ config
@@ -307,6 +315,10 @@ MERN-Challenge-18
 │  │  │  │  │  ├─ index.ts
 │  │  │  │  │  └─ user-routes.ts
 │  │  │  │  └─ index.ts
+│  │  │  ├─ schemas
+│  │  │  │  ├─ index.ts
+│  │  │  │  ├─ resolvers.ts
+│  │  │  │  └─ typeDefs.ts
 │  │  │  ├─ server.ts
 │  │  │  ├─ services
 │  │  │  │  └─ auth.ts

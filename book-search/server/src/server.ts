@@ -1,4 +1,3 @@
-
 import express from 'express';
 import path from 'node:path';
 import { ApolloServer } from '@apollo/server';
@@ -11,7 +10,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 import db from './config/connection.js';
-import routes from './routes/index.js';
+// import routes from './routes/index';
 
 import { typeDefs, resolvers } from './schemas/index.js';
 
@@ -25,6 +24,8 @@ const startApolloServer = async () => {
   });
 
   await server.start();
+
+  await db();
 
   app.use(
     '/graphql',
@@ -45,14 +46,13 @@ const startApolloServer = async () => {
     app.use(express.static(path.join(__dirname, '../client/dist')));
   }
 
-  app.use(routes); // still use REST routes if needed during transition
+  // app.use(routes); // still use REST routes if needed during transition
 
-  db.once('open', () => {
     app.listen(PORT, () => {
-      console.log(`Now listening on localhost:${PORT}`);
-      console.log(`GraphQL available at http://localhost:${PORT}/graphql`);
+      console.log(`🚀 Server is now listening on http://localhost:${PORT}`);
+      console.log(`GraphQL endpoint at http://localhost:${PORT}/graphql`);
     });
-  });
+
 };
 
 startApolloServer();
