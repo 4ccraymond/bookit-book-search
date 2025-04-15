@@ -49,7 +49,7 @@ const startApolloServer = async () => {
   // app.use(routes); // still use REST routes if needed during transition
 
     app.listen(PORT, () => {
-      console.log(`🚀 Server is now listening on http://localhost:${PORT}`);
+      console.log(`Server is now listening on http://localhost:${PORT}`);
       console.log(`GraphQL endpoint at http://localhost:${PORT}/graphql`);
     });
 
