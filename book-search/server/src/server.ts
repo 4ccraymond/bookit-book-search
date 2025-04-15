@@ -35,7 +35,10 @@ const startApolloServer = async () => {
 
   app.use(
     '/graphql',
-    cors(),
+    cors({
+      origin: 'https://bookit-book-search-1.onrender.com',
+      credentials: true,
+    }),
     bodyParser.json(),
     expressMiddleware(server, {
       context: async ({ req }) => {
@@ -44,6 +47,7 @@ const startApolloServer = async () => {
       },
     })
   );
+  
 
   app.use(express.urlencoded({ extended: true }));
   app.use(express.json());
