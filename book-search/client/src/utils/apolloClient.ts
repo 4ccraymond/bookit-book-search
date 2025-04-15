@@ -1,10 +1,11 @@
 import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
-// Change this with deploy
 const httpLink = createHttpLink({
   uri: 'https://bookit-book-search.onrender.com/graphql',
 });
+
+console.log('Apollo Client connecting to:', httpLink);
 
 // Attach JWT token to every request
 const authLink = setContext((_, { headers }) => {
